@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-700">
+    <div class="container p-7 mx-auto">
+      <div class="bg-blue-400 p-4 rounded-md">
+        <div class="flex flex-col md:flex-row items-center text-center justify-between mt-2">
+          
+          <img src="./img/calculator.png" alt="Calculatio Icon"
+          class="w-36 h-36 mx-auto rounded-full">
+
+          <h1 class="text-black font-semibold text-4xl mt-4"> Calculator Application </h1>
+        
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-between mx-auto mt-12 md:mt-32 md:w-1/6">
+        
+          <h2 class="color-black text-2xl font-semibold p-4"> Convert: </h2>
+          
+          <select id="fromTypeBox" class="bg-gray-200 border border-black text-black text-lg rounded-md p-3">
+            <option selected> None </option>
+            <option> Kilograms </option>
+            <option> Pounds </option>
+            <option> Kilometers </option>
+            <option> Miles </option>
+            <option> Celsious </option>
+            <option> Farenheit </option>
+            
+          </select>
+          
+          <h2 class="color-black text-2xl font-semibold p-4"> to </h2>
+
+          <select id="toTypeBox" class="bg-gray-200 border border-black text-black text-lg rounded-md p-3">
+            <option selected> None </option>
+            <option> Kilograms </option>
+            <option> Pounds </option>
+            <option> Kilometers </option>
+            <option> Miles </option>
+            <option> Celsious </option>
+            <option> Farenheit </option>
+            
+          </select>
+          
+        </div>
+
+        <div class="flex flex-row items-center justify-between mx-auto mt-12 mb-16 md:mt-24 md:w-1/4 md:mb-8">
+          
+          <input type="text" id="fromAnswerBox" class="bg-white border border-black text-black text-lg rounded-md p-3">
+          
+          <h2 class="color-black text-xl font-semibold mx-auto"> to </h2>
+
+          <input type="text" id="toAnswerBox" class="bg-white border border-black text-black text-lg rounded-md p-3">
+          
+        </div>
+
+      </div>
+    </div>
+</body>
+</html>
