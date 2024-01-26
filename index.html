@@ -25,43 +25,44 @@
           
           <select id="selection1" onchange="updateField();" class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3">
             <option selected> None </option>
-            <option id="weight"> Kilograms </option>
-            <option id="weight"> Pounds </option>
-            <option id="distance"> Kilometers </option>
-            <option id="distance"> Miles </option>
-            <option id="temperature"> Celsious </option>
-            <option id="temperature"> Farenheit </option>
+            <option id="weight">Kilograms</option>
+            <option id="weight">Pounds</option>
+            <option id="distance">Kilometers</option>
+            <option id="distance">Miles</option>
+            <option id="temperature">Celsius</option>
+            <option id="temperature">Fahrenheit</option>
             
           </select>
           
           <h2 class="color-black text-2xl font-semibold p-4"> to </h2>
-
+          
           <select id="selection2" onchange="updateField();" class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3">
             <option selected> None </option>
-            <option id="weight"> Kilograms </option>
-            <option id="weight"> Pounds </option>
-            <option id="distance"> Kilometers </option>
-            <option id="distance"> Miles </option>
-            <option id="temperature"> Celsious </option>
-            <option id="temperature"> Farenheit </option>
+            <option id="weight">Kilograms</option>
+            <option id="weight">Pounds</option>
+            <option id="distance">Kilometers</option>
+            <option id="distance">Miles</option>
+            <option id="temperature">Celsius</option>
+            <option id="temperature">Fahrenheit</option>
             
           </select>
           
         </div>
-
+        
         <div class="flex flex-row items-center justify-between mx-auto mt-6 md:mt-16">
           
           <label id="Unit1" class="color-black text-xl font-semibold mx-3"> </label>
-
-          <input type="text" id="fromAnswerBox" class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3">
-
+          
+          <input type="number" id="fromAnswerBox" class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3">
+          
+          <button onclick="updateToAnswerBox()" class="bg-green-600 border border-black rounded-md p-3 ml-2 text-white font-bold">Convert</button>
           <h2 class="color-black text-xl font-semibold mx-auto p-4"> to </h2>
-
-        
-
+          
+          
+          
           <label id="Unit2" class="color-black text-xl font-semibold mx-3"> </label>
-
-          <input type="text" id="toAnswerBox" class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3">
+          
+          <input type="number" id="toAnswerBox" class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3">
 
         </div>
 
