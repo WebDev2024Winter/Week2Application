@@ -1,25 +1,28 @@
 const Calculate = (type1, type2, value1) => {
-    if (type1 === type2) {
-        return value1;
-    }
-    
+
+    const number = parseFloat(value1)
+
+      if (type1 === type2) {
+        return number;
+      }
+
     switch (`${type1}-${type2}`) {
         case type1 === type2:
-          return value1;
+          return number;
         case 'Pounds-Kilograms':
-          return value1 * 0.453592;
+          return number * 0.453592;
         case 'Kilograms-Pounds':
-          return value1 * 2.20462;
+          return number * 2.20462;
         case 'Kilometers-Miles':
-          return value1 * 0.621371; 
+          return number * 0.621371; 
         case 'Miles-Kilometers':
-          return value1 * 1.60934;
+          return number * 1.60934;
         case 'Celsius-Fahrenheit':
-          return (value1 * 9/5) + 32;
+          return (number * 9/5) + 32;
         case 'Fahrenheit-Celsius':
-          return (value1 - 32) * 5/9;
+          return (number - 32) * 5/9;
         default:
-          console.error('Invalid conversion type');
+          console.error(`${type1}-${type2}`);
           return null;
       }
 }
@@ -47,12 +50,20 @@ const updateField = () => {
 
     
 
+  }
+
+
+const updateAnswerBox = (fromType, toType, inputBox, outputBox) => {
+  const type1 = document.getElementById(fromType).innerText
+  const type2 = document.getElementById(toType).innerText
+  let value1 = document.getElementById(inputBox).value
+
+  const splitValues = value1.split(" ")
+  const calcultedValues = splitValues.map(value => (Calculate(type1,type2,value)).toFixed(2))
+  console.log('calculatedvalues:',calcultedValues)
+  value1 = calcultedValues.join(" ")
+
+  document.getElementById(outputBox).value = value1
+
 }
 
-const updateToAnswerBox = () => {
-    const type1 = document.getElementById("Unit1").innerText
-    const type2 = document.getElementById("Unit2").innerText
-    const value1 = document.getElementById("fromAnswerBox").value
-    document.getElementById("toAnswerBox").value = Calculate(type1, type2, value1)
-
-}

@@ -1,76 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script type="text/javascript" src="./jscript.js"></script>
-  <link rel="stylesheet" href="./input.css">
-</head>
-<body class="bg-gray-700">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="./jscript.js"></script>
+    <link rel="stylesheet" href="./input.css" />
+  </head>
+  <body class="bg-gray-700">
     <div class="container p-7 mx-auto">
       <div class="bg-blue-400 p-4 rounded-md">
-        <div class="flex flex-col items-center text-center justify-between mt-8">
-          
-          <img src="./img/calculator.png" alt="Calculator Icon"
-          class="w-36 h-36 mx-auto rounded-full">
+        <div
+          class="flex flex-col items-center text-center justify-between mt-8"
+        >
+          <img
+            src="./img/calculator.png"
+            alt="Calculator Icon"
+            class="w-36 h-36 mx-auto rounded-full"
+          />
 
-          <h1 class=" text-black font-semibold text-4xl mt-4"> Calculator Application </h1>
-        
+          <h1 class="text-black font-semibold text-4xl mt-4">
+            Calculator Application
+          </h1>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center justify-between mx-auto mt-12 md-24 md:mt-12">
-        
-          <h2 class="color-black text-2xl font-semibold p-4"> Convert: </h2>
-          
-          <select id="selection1" onchange="updateField();" class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3">
-            <option selected> None </option>
+        <div
+          class="flex flex-col md:flex-row items-center justify-between mx-auto mt-12 md-24 md:mt-12"
+        >
+          <h2 class="color-black text-2xl font-semibold p-4">Convert:</h2>
+
+          <select
+            id="selection1"
+            onchange="updateField();"
+            class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3"
+          >
+            <option selected>None</option>
             <option id="weight">Kilograms</option>
             <option id="weight">Pounds</option>
             <option id="distance">Kilometers</option>
             <option id="distance">Miles</option>
             <option id="temperature">Celsius</option>
             <option id="temperature">Fahrenheit</option>
-            
           </select>
-          
-          <h2 class="color-black text-2xl font-semibold p-4"> to </h2>
-          
-          <select id="selection2" onchange="updateField();" class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3">
-            <option selected> None </option>
+
+          <h2 class="color-black text-2xl font-semibold p-4">to</h2>
+
+          <select
+            id="selection2"
+            onchange="updateField();"
+            class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3"
+          >
+            <option selected>None</option>
             <option id="weight">Kilograms</option>
             <option id="weight">Pounds</option>
             <option id="distance">Kilometers</option>
             <option id="distance">Miles</option>
             <option id="temperature">Celsius</option>
             <option id="temperature">Fahrenheit</option>
-            
           </select>
-          
         </div>
-        
-        <div class="flex flex-row items-center justify-between mx-auto mt-6 md:mt-16">
-          
-          <label id="Unit1" class="color-black text-xl font-semibold mx-3"> </label>
-          
-          <input onchange="updateToAnswerBox()" type="number" id="fromAnswerBox" class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3">
-          
+        <h3 class="font-bold mt-6 text-center">Separate values with spaces</h3>
+        <div
+          class="flex flex-row items-center justify-between mx-auto mt-6 md:mt-9"
+        >
+          <label id="Unit1" class="color-black text-xl font-semibold mx-3">
+          </label>
+
+          <input
+            onchange="updateAnswerBox('Unit1','Unit2','fromAnswerBox','toAnswerBox')"
+            type="text"
+            id="fromAnswerBox"
+            class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3"
+          />
+
           <!-- <button onclick="updateToAnswerBox()" class="bg-green-600 border border-black rounded-md p-3 ml-2 text-white font-bold">Convert</button> -->
-          <h2 class="color-black text-xl font-semibold mx-auto p-4"> to </h2>
-          
-          
-          
-          <label id="Unit2" class="color-black text-xl font-semibold mx-3"> </label>
-          
-          <input type="number" id="toAnswerBox" class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3">
+          <h2 class="color-black text-xl font-semibold mx-auto p-4">-</h2>
 
+          <label id="Unit2" class="color-black text-xl font-semibold mx-3">
+          </label>
+
+          <input
+            onchange="updateAnswerBox('Unit2','Unit1','toAnswerBox','fromAnswerBox')"
+            type="text"
+            id="toAnswerBox"
+            class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3"
+          />
         </div>
-
-        <div class="flex flex-row items-center justify-between mx-auto mt-6 md:mb-24">
-          <h3 id="message" class="color-black text-xl font-semibold mx-auto p-4">  </h3>
+        <h3 class="font-bold mt-6 text-center">Works both ways</h3>
+        <div
+          class="flex flex-row items-center justify-between mx-auto mt-6 md:mb-24"
+        >
+          <h3
+            id="message"
+            class="color-black text-xl font-semibold mx-auto p-4"
+          ></h3>
         </div>
-
       </div>
     </div>
-</body>
+  </body>
 </html>
