@@ -1,40 +1,67 @@
+<!--  
+    This is a simple calculator app written using HTML, Javascript, Tailwind CSS and CSS.
+    Converts weight, distance and temperature.
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- We are using Tailwind CSS and Javascript so to import their functions and classes we need these 2 script tags -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="./jscript.js"></script>
+
+    <!-- Just like the 2 script tags above we will also be using our own CSS so were including it with this link tag -->
     <link rel="stylesheet" href="./input.css" />
+
+    <!-- Our head tag starts here -->
   </head>
+
+  <!-- Background behind UI is gray -->
   <body class="bg-gray-700">
+
+    <!-- UI holder container with padding 7 -->
     <div class="container p-7 mx-auto">
+
+      <!-- Our container will be blue and rounded with padding 4 -->
       <div class="bg-blue-400 p-4 rounded-md">
-        <div
-          class="flex flex-col items-center text-center justify-between mt-8"
-        >
+
+        <!-- Our webpage UI head will have a image + header text -->
+        <div class="flex flex-col items-center text-center justify-between mt-8">
+          <!-- Our header image -->
           <img
             src="./img/calculator.png"
             alt="Calculator Icon"
             class="w-36 h-36 mx-auto rounded-full"
           />
 
+          <!-- Here is our webpage header text as class h1 -->
           <h1 class="text-black font-semibold text-4xl mt-4">
             Calculator Application
           </h1>
         </div>
 
+        <!-- Our div tag for unit conversion selection boxes eg. Kilometers to Miles -->
         <div
           class="flex flex-col md:flex-row items-center justify-between mx-auto mt-12 md-24 md:mt-12"
         >
+
+          <!-- Selection box label -->
           <h2 class="color-black text-2xl font-semibold p-4">Convert:</h2>
 
+          <!-- Our selection box which is updated using updateField() function -->
           <select
             id="selection1"
             onchange="updateField();"
+            <!-- Selection box styling which can be found in our CSS file. -->
             class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3"
-          >
+            >
+            <!-- The deafult selection -->
             <option selected>None</option>
+
+            <!-- The rest of the selection which include an id to later make sure in Javacript that the conversion types are right -->
             <option id="weight">Kilograms</option>
             <option id="weight">Pounds</option>
             <option id="distance">Kilometers</option>
@@ -43,14 +70,22 @@
             <option id="temperature">Fahrenheit</option>
           </select>
 
+          <!-- Second selection box label -->
           <h2 class="color-black text-2xl font-semibold p-4">to</h2>
 
+          <!-- Our second selection box which is updated using updateField() function as well -->
           <select
             id="selection2"
             onchange="updateField();"
+            
+            <!-- Selection box styling which can be found in our CSS file. -->
             class="cssSelectionBox bg-gray-200 border border-black text-black text-lg rounded-md p-3"
-          >
+            >
+            
+            <!-- The deafult selection -->
             <option selected>None</option>
+
+            <!-- The rest of the selection which include an id to later make sure in Javacript that the conversion types are right -->
             <option id="weight">Kilograms</option>
             <option id="weight">Pounds</option>
             <option id="distance">Kilometers</option>
@@ -58,44 +93,78 @@
             <option id="temperature">Celsius</option>
             <option id="temperature">Fahrenheit</option>
           </select>
+        
+          <!-- Closing our div tag for unit conversion selection boxes -->
         </div>
+
+        <!-- A comment to guide our users -->
         <h3 class="font-bold mt-6 text-center">Separate values with spaces</h3>
+        
+        <!-- Our div class input and output boxes for values and answers -->
         <div
           class="flex flex-row items-center justify-between mx-auto mt-6 md:mt-9"
         >
+
+          <!-- A label for our input/output box -->
           <label id="Unit1" class="color-black text-xl font-semibold mx-3">
           </label>
 
+          <!-- This input/output box takes numbers and using Javascript sends answers to second input/output box using updateAnswersBox() function -->
           <input
             onchange="updateAnswerBox('Unit1','Unit2','fromAnswerBox','toAnswerBox')"
             type="text"
             id="fromAnswerBox"
-            class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3"
-          />
 
+            <!-- Styling for input/output box -->
+            class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3"
+          /> 
+          <!-- End input/output box tag -->
+
+          <!-- Comment for convert button code -->
           <!-- <button onclick="updateToAnswerBox()" class="bg-green-600 border border-black rounded-md p-3 ml-2 text-white font-bold">Convert</button> -->
+          
+          <!-- Comment between input/output box -->
           <h2 class="color-black text-xl font-semibold mx-auto p-4">-</h2>
 
+          <!-- A second label for our second input/output box -->
           <label id="Unit2" class="color-black text-xl font-semibold mx-3">
           </label>
 
+          <!-- This input/output box takes numbers and using Javascript sends answers to first input/output box using updateAnswersBox() function -->
           <input
             onchange="updateAnswerBox('Unit2','Unit1','toAnswerBox','fromAnswerBox')"
             type="text"
             id="toAnswerBox"
+            
+            <!-- Styling for input/output box -->
             class="cssInputBox bg-white border border-black text-black text-lg rounded-md p-3"
-          />
+          /> 
+          <!-- End input/output box tag -->
+          
         </div>
+        <!-- End input/output box div tag ends here -->
+
+        <!-- Header comment on how to use Calculator -->
         <h3 class="font-bold mt-6 text-center">Works both ways</h3>
+        
+        <!-- Div tag for styling error message if improper conversion types are selected eg. Kilometers to Kilograms -->
         <div
           class="flex flex-row items-center justify-between mx-auto mt-6 md:mb-24"
         >
+
+          <!-- This h3 tag is for sending an error message for if improper conversion types are selected eg. Kilometers to Kilograms
+               using Javascript and h3 id in it
+          -->
           <h3
             id="message"
             class="color-black text-xl font-semibold mx-auto p-4"
           ></h3>
+        
         </div>
       </div>
     </div>
+    
+  <!-- End body tag -->
   </body>
+
 </html>
